@@ -94,6 +94,9 @@
       "react-app"
     ]
   },
+  "enact": {
+    "ri": 24
+  },
   "eslintConfig": {
     "extends": "react-app"
   }
