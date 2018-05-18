@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import kind from '@enact/core/kind';
-import Button from '@enact/ui/Button';
+import Button from '@enact/zircon/Button';
 
 import originalCss from '../App.css';
 import css from './MainView.less';
@@ -19,7 +19,7 @@ const EnactKind = kind({
 			<Button
 				{...rest}
 			>
-				I'm an Enact UI Button
+				I'm an Enact Zircon Button
 			</Button>
 		);
 	}
