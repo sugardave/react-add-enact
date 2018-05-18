@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ZirconDecorator from '@enact/zircon/ZirconDecorator';
 
 import MainView from './MainView';
 
@@ -10,4 +11,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ZirconDecorator(App);
