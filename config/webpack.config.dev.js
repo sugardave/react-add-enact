@@ -9,9 +9,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const LessPluginRi = require('resolution-independence');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const {optionParser: app} = require('@enact/dev-utils');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -159,14 +161,13 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.(c|le)ss$/,
-            // test: `/\.css$/`,
             loader: ExtractTextPlugin.extract({
               fallback: require.resolve('style-loader'),
               use: [
                   {
                     loader: require.resolve('css-loader'),
                     options: {
-                        importLoaders: 1,
+                        importLoaders: 2,
                         modules: true
                     },
                   },
@@ -193,9 +194,9 @@ module.exports = {
                   {
                     loader: require.resolve('less-loader'),
                     options: {
-                      sourceMap: true,
+                      // sourceMap: true,
                       // If resolution independence options are specified, use the LESS plugin.
-                      // plugins: app.ri ? [new LessPluginRi(app.ri)] : []
+                      plugins: app.ri ? [new LessPluginRi(app.ri)] : []
                     }
                   }
               ]
