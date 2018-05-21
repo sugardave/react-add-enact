@@ -4,13 +4,10 @@ import '../App.css';
 
 import kind from '@enact/core/kind';
 import Button from '@enact/zircon/Button';
+import Toggleable from '@enact/ui/Toggleable';
 
 import originalCss from '../App.css';
 import css from './MainView.less';
-
-const tapHandler = () => {
-	console.log('TAPPED!');
-};
 
 const EnactKind = kind({
 	name: 'EnactKind',
@@ -18,16 +15,18 @@ const EnactKind = kind({
 		css,
 		className: 'button'
 	},
-	render: ({...rest}) => {
+	render: ({selected, ...rest}) => {
 		return (
 			<Button
 				{...rest}
 			>
-				I'm an Enact Zircon Button
+				{`I'm an Enact Zircon Button: ${selected ? 'ON' : 'OFF'}`}
 			</Button>
 		);
 	}
 });
+
+const ToggleButton = Toggleable({toggleProp: 'onTap'}, EnactKind);
 
 const MainView = kind({
 	name: 'MainView',
@@ -50,7 +49,7 @@ const MainView = kind({
 				<p className={originalCss['App-intro']}>
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
-				<EnactKind onTap={tapHandler} />
+				<ToggleButton />
 			</div>
 		);
 	}
