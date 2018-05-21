@@ -8,6 +8,10 @@ import Button from '@enact/zircon/Button';
 import originalCss from '../App.css';
 import css from './MainView.less';
 
+const tapHandler = () => {
+	console.log('TAPPED!');
+};
+
 const EnactKind = kind({
 	name: 'EnactKind',
 	styles: {
@@ -46,7 +50,7 @@ const MainView = kind({
 				<p className={originalCss['App-intro']}>
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
-				<EnactKind />
+				<EnactKind onTap={tapHandler} />
 			</div>
 		);
 	}
