@@ -5,7 +5,9 @@
   "dependencies": {
     "@enact/core": "^2.0.0-beta.3",
     "@enact/dev-utils": "1.0.4",
+    "@enact/i18n": "^2.0.0-beta.3",
     "@enact/ui": "^2.0.0-beta.3",
+    "@enact/zircon": "^2.0.0-beta.1",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
@@ -95,7 +97,8 @@
     ]
   },
   "enact": {
-    "ri": 24
+    "ri": 24,
+    "theme": "zircon"
   },
   "eslintConfig": {
     "extends": "react-app"

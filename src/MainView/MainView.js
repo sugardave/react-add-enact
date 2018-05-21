@@ -3,10 +3,14 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import kind from '@enact/core/kind';
-import Button from '@enact/ui/Button';
+import Button from '@enact/zircon/Button';
 
 import originalCss from '../App.css';
 import css from './MainView.less';
+
+const tapHandler = () => {
+	console.log('TAPPED!');
+};
 
 const EnactKind = kind({
 	name: 'EnactKind',
@@ -19,7 +23,7 @@ const EnactKind = kind({
 			<Button
 				{...rest}
 			>
-				I'm an Enact UI Button
+				I'm an Enact Zircon Button
 			</Button>
 		);
 	}
@@ -46,7 +50,7 @@ const MainView = kind({
 				<p className={originalCss['App-intro']}>
 					To get started, edit <code>src/App.js</code> and save to reload.
 				</p>
-				<EnactKind />
+				<EnactKind onTap={tapHandler} />
 			</div>
 		);
 	}
